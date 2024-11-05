@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 350px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            position: relative;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 12px 45px;
+            font-size: 16px;
+            border: 2px solid #333;
+            border-radius: 25px;
+            outline: none;
+        }
+
+        .input-icon {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            font-size: 18px;
+        }
+
+        .button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            background-color: #7062EC;
+            color: #ffffff;
+            transition: background-color 0.3s ease;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: #6a40d6;
+        }
+
+        .toggle-text {
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .toggle-link {
+            color: #7062EC;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .toggle-link:hover {
+            text-decoration: underline;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            text-align: left;
+            margin: 5px 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <div class="input-container">
+            <span class="input-icon">👤</span>
+            <input type="text" id="registerFullName" placeholder="Full Name" required>
+            <div class="error" id="registerFullNameError"></div>
+        </div>
+
+        <div class="input-container">
+            <span class="input-icon">📧</span>
+            <input type="email" id="registerEmail" placeholder="Email" required>
+            <div class="error" id="registerEmailError"></div>
+        </div>
+
+        <div class="input-container">
+            <span class="input-icon">🔒</span>
+            <input type="password" id="registerPassword" placeholder="Password" required>
+            <div class="error" id="registerPasswordError"></div>
+        </div>
+
+        <div class="input-container">
+            <span class="input-icon">🔒</span>
+            <input type="password" id="registerConfirmPassword" placeholder="Confirm Password" required>
+            <div class="error" id="registerConfirmPasswordError"></div>
+        </div>
+
+        <button class="button" onclick="validateRegister()">Sign Up</button>
+
+        <div class="toggle-text">
+            Already have an account? <a href="login.html" class="toggle-link">Login Now!</a>
+        </div>
+    </div>
+
+    <script>
+        function validateRegister() {
+            let valid = true;
+            const fullName = document.getElementById('registerFullName');
+            const email = document.getElementById('registerEmail');
+            const password = document.getElementById('registerPassword');
+            const confirmPassword = document.getElementById('registerConfirmPassword');
+
+            const fullNameError = document.getElementById('registerFullNameError');
+            const emailError = document.getElementById('registerEmailError');
+            const passwordError = document.getElementById('registerPasswordError');
+            const confirmPasswordError = document.getElementById('registerConfirmPasswordError');
+
+            fullNameError.textContent = '';
+            emailError.textContent = '';
+            passwordError.textContent = '';
+            confirmPasswordError.textContent = '';
+
+            if (!fullName.value) {
+                fullNameError.textContent = 'Full name is required';
+                valid = false;
+            }
+            if (!email.value || !email.value.includes('@')) {
+                emailError.textContent = 'Valid email is required';
+                valid = false;
+            }
+            if (!password.value) {
+                passwordError.textContent = 'Password is required';
+                valid = false;
+            }
+            if (password.value !== confirmPassword.value) {
+                confirmPasswordError.textContent = 'Passwords do not match';
+                valid = false;
+            }
+
+            if (valid) {
+                alert('Registration successful');
+            }
+        }
+    </script>
+</body>
+</html>

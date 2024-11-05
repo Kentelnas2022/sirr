@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #ffffff;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 350px;
+        width: 100%;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .input-container {
+        position: relative;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .input-container input {
+        width: 100%;
+        padding: 12px 45px;
+        font-size: 16px;
+        border: 2px solid #333;
+        border-radius: 25px;
+        outline: none;
+    }
+
+    .input-icon {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        font-size: 18px;
+    }
+
+    .button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        background-color: #7062EC;
+        color: #ffffff;
+        transition: background-color 0.3s ease;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .button:hover {
+        background-color: #6a40d6;
+    }
+
+    .toggle-text {
+        text-align: center;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .toggle-link {
+        color: #7062EC;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .toggle-link:hover {
+        text-decoration: underline;
+    }
+
+    .error {
+        color: red;
+        font-size: 12px;
+        text-align: left;
+        margin: 5px 0;
+    }
+
+    .hidden {
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <div class="input-container">
+            <span class="input-icon">👤</span>
+            <input type="text" id="loginUsername" placeholder="Email or Username" required>
+            <div class="error" id="loginUsernameError"></div>
+        </div>
+
+        <div class="input-container">
+            <span class="input-icon">🔒</span>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <div class="error" id="loginPasswordError"></div>
+        </div>
+
+        <button class="button" onclick="validateLogin()">Sign in</button>
+
+        <div class="toggle-text">
+            Don’t have an account? <a href="register.html" class="toggle-link">Signup Now!</a>
+        </div>
+    </div>
+
+    <script>
+        function validateLogin() {
+            let valid = true;
+            const loginUsername = document.getElementById('loginUsername');
+            const loginPassword = document.getElementById('loginPassword');
+            const loginUsernameError = document.getElementById('loginUsernameError');
+            const loginPasswordError = document.getElementById('loginPasswordError');
+    
+            loginUsernameError.textContent = '';
+            loginPasswordError.textContent = '';
+    
+            if (!loginUsername.value) {
+                loginUsernameError.textContent = 'Username is required';
+                valid = false;
+            }
+            if (!loginPassword.value) {
+                loginPasswordError.textContent = 'Password is required';
+                valid = false;
+            }
+    
+            if (valid) {
+                alert('Login successful');
+                window.location.href = "dashboard.html"; 
+            }
+        }
+    </script>
+</body>
+</html>

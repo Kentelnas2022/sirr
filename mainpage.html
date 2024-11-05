@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Event Calendar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 50px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn {
+            background-color: #7062EC;
+            color: #ffffff;
+        }
+
+        .login-btn:hover {
+            background-color: #7062EC;
+        }
+
+        .create-account-btn {
+            background-color: #ffffff;
+            color: #333;
+            border: 1px solid #333;
+        }
+
+        .create-account-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+
+            .logo {
+                font-size: 40px;
+            }
+
+            .title {
+                font-size: 20px;
+            }
+
+            .description {
+                font-size: 12px;
+            }
+
+            .button {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">✨</div>
+        <h1 class="title">School-EventCalendar</h1>
+        <p class="description">
+            Stay connected with our vibrant school community through the School Event System!
+        </p>
+        <button class="button login-btn" onclick="window.location.href='login.html'">Login</button>
+        <button class="button create-account-btn" onclick="window.location.href='register.html'">Create account</button>
+    </div>
+
+</body>
+</html>
+        
